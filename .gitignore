@@ -12,6 +12,8 @@ local.properties
 .settings/
 .loadpath
 
+jnetpcap/
+
 # External tool builders
 .externalToolBuilders/
 
