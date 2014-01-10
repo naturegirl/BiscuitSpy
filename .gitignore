@@ -1,6 +1,7 @@
 *.pydevproject
 .metadata
 .gradle
+.gitignore~
 bin/
 tmp/
 *.tmp
