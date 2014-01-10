@@ -1,6 +1,9 @@
 package com.BiscuitSpy.cookies;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 public class CookieUtils {
@@ -37,5 +40,17 @@ public class CookieUtils {
 			System.out.println(s);
 		return result;
 	}	
+	
+	/**
+	 * converts a unix timestamp to a readable date time string 
+	 * @param unixTimestamp: unix timestamp (in seconds, not milliseconds)
+	 * @return returns a time string of format: "01/16/1970 08:55 PM"
+	 */
+	public static String convertTimestamp(String unixTimestamp) {
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+		long timestamp = Long.parseLong(unixTimestamp) * 1000;	// miliseconds
+		Date date = new Date(timestamp);
+		return df.format(date);
+	}
 	
 }

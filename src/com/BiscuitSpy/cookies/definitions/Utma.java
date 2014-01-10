@@ -1,12 +1,11 @@
 package com.BiscuitSpy.cookies.definitions;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.StringTokenizer;
+import com.BiscuitSpy.cookies.CookieUtils;
 
 public class Utma {
 
+	// cookie name: __utma
 	// utma cookie structure:
 	// 'domain hash'.'visitor id'.'initial visit'.'previous visit'.'current visit'.'session number'
 	String domainhash, visitorid, sessionCount;
@@ -29,22 +28,10 @@ public class Utma {
 		}
 		domainhash = st.nextToken();
 		visitorid = st.nextToken();
-		firstVisit = convertTimestamp(st.nextToken());
-		previousVisit = convertTimestamp(st.nextToken());
-		currentVisit = convertTimestamp(st.nextToken());
+		firstVisit = CookieUtils.convertTimestamp(st.nextToken());
+		previousVisit = CookieUtils.convertTimestamp(st.nextToken());
+		currentVisit = CookieUtils.convertTimestamp(st.nextToken());
 		sessionCount = st.nextToken();
-	}
-	
-	/**
-	 * 
-	 * @param unixTimestamp: unix timestamp (in seconds, not milliseconds)
-	 * @return returns a time string of format: "01/16/1970 08:55 PM"
-	 */
-	private String convertTimestamp(String unixTimestamp) {
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
-		long timestamp = Long.parseLong(unixTimestamp) * 1000;	// miliseconds
-		Date date = new Date(timestamp);
-		return df.format(date);
 	}
 	
 	public String getVisitorId() {
