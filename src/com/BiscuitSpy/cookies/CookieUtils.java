@@ -9,12 +9,7 @@ import java.util.StringTokenizer;
 public class CookieUtils {
 	
 	// Cookie name constants
-	public static final String UTMA = "__utma";
-	public static final String UTMB = "__utmb";
-	public static final String UTMC = "__utmc";
-	public static final String UTMZ = "__utmz";
-	public static final String PREF = "PREF";
-	public static final String DBCLK_ID = "id";
+	public static final String[] spyCookies = {"__utma", "__utmb", "__utmz", "PREF", "id"};
 
 	/**
 	 * @param args
