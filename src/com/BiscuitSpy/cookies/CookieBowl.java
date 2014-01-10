@@ -28,7 +28,7 @@ public class CookieBowl {
 	 * @param packet a capture HTTP packet
 	 */
 	public CookieBowl(Http packet){
-		// extract source IP addr, dest IP addr and domain from packet
+		// TODO: extract source IP addr, dest IP addr and domain from packet
 		bowl = fillCookieBowl(packet.fieldValue(Request.Cookie));
 		extracted = new Hashtable<String,Cookie>();
 	}
