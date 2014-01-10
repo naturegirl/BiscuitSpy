@@ -8,6 +8,9 @@ public class Utma {
 	// cookie name: __utma
 	// utma cookie structure:
 	// 'domain hash'.'visitor id'.'initial visit'.'previous visit'.'current visit'.'session number'
+	
+	final static String DELIM = ".";
+	
 	String domainhash, visitorid, sessionCount;
 	String firstVisit, previousVisit, currentVisit;	// saved in date time format: "01/16/1970 08:55 PM"
 	
@@ -20,8 +23,7 @@ public class Utma {
 			System.out.println("Error in Utma(): utmastring is empty");
 			return;
 		}
-		String delim = ".";
-		StringTokenizer st = new StringTokenizer(utmastring, delim);
+		StringTokenizer st = new StringTokenizer(utmastring, DELIM);
 		if (st.countTokens() != 6) {
 			System.out.println("Error in Utma(): utma tokens count incorrect");
 			return;

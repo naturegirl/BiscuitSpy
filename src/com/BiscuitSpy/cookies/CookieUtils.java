@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class CookieUtils {
 	
 	// Cookie name constants
-	public static final String[] spyCookies = {"__utma", "__utmb", "__utmz", "PREF", "id"};
+	public static final String[] spyCookies = {"__utma", "__utmb", "__utmz", "PREF", "id", "wpc_wpc"};
 
 	/**
 	 * @param args
@@ -47,5 +47,22 @@ public class CookieUtils {
 		Date date = new Date(timestamp);
 		return df.format(date);
 	}
+	
+	/**
+	 * Gets the value of a field of structure key=value
+	 * Used since often cookies store several fields, and we're interested in their individual values
+	 * @param field: has to be of form key=value
+	 * @return	returns value
+	 */
+	public static String getFieldValue(String field) {
+		StringTokenizer st = new StringTokenizer(field, "=");
+		if (st.countTokens() != 2) {
+			System.out.println("Error in getFieldValue(): format incorrect");
+			return null;
+		}
+		st.nextToken();		// key
+		return st.nextToken();
+	}
+	
 	
 }
