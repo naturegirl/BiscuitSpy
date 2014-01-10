@@ -17,6 +17,10 @@ public class Cookie {
 		value = v;
 		host = h;
 	}
+	
+	public Cookie(String v){
+		value = v;
+	}
 
 	public String getName() {
 		return name;

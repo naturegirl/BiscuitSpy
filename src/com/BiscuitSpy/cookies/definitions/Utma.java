@@ -1,9 +1,11 @@
 package com.BiscuitSpy.cookies.definitions;
 
 import java.util.StringTokenizer;
+
+import com.BiscuitSpy.cookies.Cookie;
 import com.BiscuitSpy.cookies.CookieUtils;
 
-public class Utma {
+public class Utma extends Cookie{
 
 	// cookie name: __utma
 	// utma cookie structure:
@@ -19,6 +21,7 @@ public class Utma {
 	 * @param utmastring: the value of the utma cookie.
 	 */
 	public Utma(String utmastring) {
+		super(utmastring);
 		if (utmastring == null || utmastring == "") {
 			System.out.println("Error in Utma(): utmastring is empty");
 			return;
@@ -68,4 +71,10 @@ public class Utma {
 		System.out.println(utma.getCurrentVisit());
 	}
 
+	public void printAll(){
+		System.out.println(getFirstVisit());
+		System.out.println(getPreviousVisit());
+		System.out.println(getCurrentVisit());
+	}
+	
 }

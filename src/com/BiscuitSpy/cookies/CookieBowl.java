@@ -33,6 +33,10 @@ public class CookieBowl {
 		extracted = new Hashtable<String,Cookie>();
 		System.out.println("created cookie bowl for a request to domain: "+domain);
 	}
+	
+	public Hashtable<String,Cookie> getExtracted(){
+		return extracted;
+	}
 
 	private Hashtable<String,Cookie> fillCookieBowl(String cookies){
 		if(cookies.equals("") || cookies == null){

@@ -2,9 +2,10 @@ package com.BiscuitSpy.cookies.definitions;
 
 import java.util.StringTokenizer;
 
+import com.BiscuitSpy.cookies.Cookie;
 import com.BiscuitSpy.cookies.CookieUtils;
 
-public class Wordpress {
+public class Wordpress extends Cookie{
 	
 	// cookie name: wpc_wpc
 	// wordpress wpc cookie structure:
@@ -18,6 +19,7 @@ public class Wordpress {
 	String email, accountname, username;
 
 	public Wordpress(String wpc_string) {
+		super(wpc_string);
 		if (wpc_string == null || wpc_string == "") {
 			System.out.println("Error in Wordpress(): wpc_string is empty");
 			return;

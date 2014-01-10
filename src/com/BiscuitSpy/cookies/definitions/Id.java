@@ -2,9 +2,10 @@ package com.BiscuitSpy.cookies.definitions;
 
 import java.util.StringTokenizer;
 
+import com.BiscuitSpy.cookies.Cookie;
 import com.BiscuitSpy.cookies.CookieUtils;
 
-public class Id {
+public class Id extends Cookie{
 
 	// cookie name: id (only from *.doubleclick.net domain)
 	// id cookie structure:
@@ -20,6 +21,7 @@ public class Id {
 	String cs;		// meaning?
 	
 	public Id(String id_string) {
+		super(id_string);
 		if (id_string == null || id_string == "") {
 			System.out.println("Error in Id(): id_string is empty");
 			return;

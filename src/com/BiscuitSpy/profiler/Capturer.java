@@ -13,6 +13,8 @@ import org.jnetpcap.protocol.tcpip.Http.Request;
 
 
 public class Capturer {
+	
+	public static int count = 0;
 
 	/**
 	 * Main startup method
@@ -93,6 +95,8 @@ public class Capturer {
                      */  
   
                 	if (http.hasField(Request.Cookie)) {
+                		System.out.println("Found cookie packet");
+                		count++;
                 		sendSegment(http);
                 		System.out.println(http.fieldValue(Request.Cookie));
                 		System.out.println(http.fieldValue(Request.Referer));
