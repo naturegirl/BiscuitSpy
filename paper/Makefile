@@ -9,11 +9,12 @@ GNUPLOT:= gnuplot
 SOURCES=$(NAME)-cos597g.tex \
 	abstract.tex \
 	intro.tex \
-	model.tex
+	model.tex \
 	design.tex \
 	eval.tex \
-	context.tex
+	context.tex \
 	related.tex \
+	future.tex \
 	conclusion.tex \
 	local.bib
 
