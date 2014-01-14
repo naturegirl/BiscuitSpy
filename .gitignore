@@ -31,3 +31,9 @@ jnetpcap/
 
 # TeXlipse plugin
 .texlipse
+
+# OS generated files
+.DS_Store
+.DS_Store?
+Thumbs.db
+
