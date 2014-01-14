@@ -1,5 +1,13 @@
 \section{Introduction}
 \label{sec:intro}
 
-Example of incorporation citations~\cite{coral:nsdi04}.
+HTTP cookies were originally introduced as a mechanism to make websites stateful \cite{httpcookies}.
+Websites use these small pieces of data to keep track of a user's browsing activity, such as whether she is logged in, or which items she has added to her shopping cart, and they store these cookies on the client-side in the user's web browser \cite{httpcookies}.
+When the user loads the website, the browser will send the appropriate stored cookies back to the web server to return to the last recorded state.
+However, HTTP cookies are not only being used to improve the user online experience.
+Because cookies allow websites to remember a given user's browsing activity or preferences on that site, online advertising companies have found a way to leverage HTTP cookies and take advantage of the vast amounts of available user information online.
+At the same time, website publishers themselves now often employ \emph{analytics cookies}, special HTTP cookies used collect statistics about their users and the usage of their website.
 
+In addition to the cookies required for the functionality of a website, advertising companies include \emph{tracking cookies} and website publishers add analytics cookies when a user visits this site.
+Such cookies have been raising concerns about users' privacy online since they were first observed \textbf{(citation needed)} because companies can compile a vast browsing history for users and learn about their personal preferences and habits \cite{dntbill}.
+Moreover, researchers have found that cookies may 
