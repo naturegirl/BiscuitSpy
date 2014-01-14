@@ -2,12 +2,23 @@
 \label{sec:intro}
 
 HTTP cookies were originally introduced as a mechanism to make websites stateful \cite{httpcookies}.
-Websites use these small pieces of data to keep track of a user's browsing activity, such as whether she is logged in, or which items she has added to her shopping cart, and they store these cookies on the client-side in the user's web browser \cite{httpcookies}.
+Websites use these small pieces of data to keep track of a user's browsing activity, such as whether she is logged in, or which items she has added to her shopping cart, and they store these cookies on the client-side in the user's web browser \cite{httpcookies,guardian:cookies}.
 When the user loads the website, the browser will send the appropriate stored cookies back to the web server to return to the last recorded state.
 However, HTTP cookies are not only being used to improve the user online experience.
 Because cookies allow websites to remember a given user's browsing activity or preferences on that site, online advertising companies have found a way to leverage HTTP cookies and take advantage of the vast amounts of available user information online.
 At the same time, website publishers themselves now often employ \emph{analytics cookies}, special HTTP cookies used collect statistics about their users and the usage of their website.
 
-In addition to the cookies required for the functionality of a website, advertising companies include \emph{tracking cookies} and website publishers add analytics cookies when a user visits this site.
-Such cookies have been raising concerns about users' privacy online since they were first observed \textbf{(citation needed)} because companies can compile a vast browsing history for users and learn about their personal preferences and habits \cite{dntbill}.
-Moreover, researchers have found that cookies may 
+In addition to the cookies required for the functionality of a website, third-party advertising companies include \emph{tracking cookies} and first-party website publishers add analytics cookies when a user visits this site \cite{guardian:cookies}.
+Such cookies have been raising concerns about users' privacy online for years because companies can identify and target consumers, and compile a vast browsing history for users and learn about their personal preferences and habits \cite{wap:cookies,dntbill}.
+Moreover, researchers have found that cookies can leak personal information belonging to any user to third-party
+sites via online social networks allowing these advertisers to learn the viewing habits of some user, and associate these viewing habits with a specific person \cite{piiosn}. In particular, Krishnamurthy \emph{et al.} \cite{piiosn} determined that  third-party advertising companies are able to obtain such information through a combination of HTTP header information and cookies.
+
+The Firesheep project\cite{firesheep} demonstrated the ease with which an adversary sniffing packets on an unencrypted network can hijack others' browsing sessions by obtaining authentication cookies \cite{pcworld:firesheep}; many affected sites responded by implementing an HTTPS-only policy.
+However, recent revelations about the National Security Agency leveraging Google advertising cookies to pinpoint targets for hacking and surveillance (\emph{e.g.,} \cite{wap:cookies, eff:nsa}) serve as a reminder that users are still vulnerable to third-party tracking based on HTTP cookies.
+Taking a similar approach to Firesheep, our work aims at raising awareness about user profiling based on HTTP cookies used for advertising and analytics.
+To this end, we present BiscuitSpy, a tool which allows a user to observe web traffic in an unencrypted network, collect HTTP cookie information, and aggregate these data to build a browsing profile of a user.
+BiscuitSpy leverages existing first- and third-party cookies to define a set of \emph{profiling cookies}, common advertising and analytics cookies found on most popular websites, and filters the captured web traffic for these pre-defined cookies.
+To create the user browsing profile, BiscuitSpy extracts the information contained in the observed profiling cookies and stores it in files for later offline analysis.
+We have implemented a basic BiscuitSpy prototype and we have conducted a small-scale measurement study to determine to most common advertising and analytics cookies suitable for profiling.
+
+This paper is organized as follows. In Section \ref{sec:background} we provide relevant background information on cookies and web tracking. Section \ref{sec:design} details BiscuitSpy's system design and Section \ref{sec:implementation} describes our prototype implementation; we evaluate BiscuitSpy in Section \ref{sec:eval}. We discuss BiscuitSpy in the context of surveillance technology and law in Section \ref{sec:context} Section \ref{sec:related} describes some related work, and we discuss directions for future work in Section \ref{sec:future}. We conclude in Section \ref{sec:conclusion}.
