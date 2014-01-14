@@ -15,7 +15,7 @@ Next, the CookieBowl searches for a pre-defined set of advertising and analytics
 The Profiler, takes the map of found profiling cookies and parses the data found in each cookie's value. 
 As discussed in Section \ref{sec:background}, BiscuitSpy uses two types of advertising/analytics cookies to build a user profile: (1) \emph{global cookies}, and (2) \emph{local cookies}.
 Since the value of global cookies does not change across different visited websites, BiscuitSpy can cross-reference each appearance of such cookies allowing it to link two independent HTTP requests captured by the packet sniffer during a single BiscuitSpy session. 
-At the same time, local cookies, which contain a per-domain unique user identifier for the entire \emph{lifetime} of the cookie (\textbf{NEEDS VERIFICATION: per session, or per lifetime}) allow BiscuitSpy to infer crucial user browsing behavior.
+At the same time, local cookies, which contain a per-domain unique user identifier for the entire \emph{lifetime} of the cookie allow BiscuitSpy to infer crucial user browsing behavior.
 By combining common global and local ad and analytics cookies, we are able to track individual users throughout a single browsing session using global cookies while gathering browsing behavior information via the associated local cookies.
 Figure \ref{fig:dataflow} shows the data flow between the various components of BiscuitSpy.
 
@@ -37,7 +37,7 @@ Nonetheless, even without such data, a user browsing profile could still be used
 \section{Implementation}
 \label{sec:implementation}
 
-We have implemented a basic command line-based BiscuitSpy prototype\footnote{The source code can be found at \url{http://github.com/naturegirl/BiscuitSpy.git}.} in Java (\textbf{ADD SLOC count?}) developed for Linux Ubuntu 12.04 LTS.
+We have implemented a basic command line-based BiscuitSpy prototype\footnote{The source code can be found at \url{http://github.com/naturegirl/BiscuitSpy}.} in Java developed for Linux Ubuntu 12.04 LTS.
 Our code is divided into three main packages: \texttt{cookies} which contains the CookieBowl as well as a general Cookie class, \texttt{cookies.definitions} which contains subclasses of Cookie, one for each profiling cookie, and \texttt{profiler} which contains both the Profiler, the Capturer, and a general Profile class.
 Because the Capturer uses the \texttt{jnetpcap-1.3.0} library, a full Java implementation of the \texttt{pcap} API for capturing network traffic, we have bundled its source with the Profiler's to facilitate communication between the two classes.
 

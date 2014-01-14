@@ -1,3 +1,24 @@
 \section{Related Work}
 \label{sec:related}
 
+BiscuitSpy draws techniques from various prior work, and many of our ideas were inspired by other projects seeking to draw attention to the privacy issues that arise from web tracking.
+
+\textbf{Firesheep.} Our main reference is the Firesheep project\cite{firesheep}.
+This Firefox browser extension was used to sniff packets from a local network and filter out authentication cookies to reveal any current sessions.
+With this data, the analyst was then able to mount a sidejacking attack, \emph{i.e.,} gain access to the account corresponding to a captured authentication cookie.
+The main purpose of Firesheep was to demonstrate that many sites at which users hold accounts, for example social networks or online shopping sites, are vulnerable to such attacks when they do not encrypt the sessions.
+Many other tools have since been developed for other platforms to demonstrate similar vulnerabilities in specific applications or on hardware platforms (\emph{e.g.,} \cite{droidsheep}).
+
+Similarly, BiscuitSpy aims to raise awareness about how easy it is not only for advertising and analytics companies, but also for passive eavesdroppers on an unencrypted network to collect cookie data and aggregate it to profile individual users' browsing habits.
+From Firesheep we borrowed the methdology of sniffing packets on a local unencrypted network to capture cookies.
+
+\textbf{Raising awareness about web tracking.} A myriad of prior work and projects have sought to raise awareness about web tracking due to HTTP cookies used for pinpointing individual users' browsing activity. 
+
+Krishnamurthy \emph{et al.} \cite{piiosn} found that cookies can leak personal information about user of social networking sites to third-party sites. 
+These advertisers can then learn the browsing habits of some user, and associate these habits with a specific person based on their social network profile. 
+In particular, social networks contain HTTP cookies that belong to third-party advertising or analytics servers that are part of the first-party social network domain.
+
+Web measurement platforms are another tool for raising awareness about web tracking practices used by popular sites.
+FourthParty, for example, is an open-source tool for measuring dynamic web content through an extension to the Firefox browser \cite{fourthparty}.
+The data gathered by FourthParty is stored in a database allowing analysis of first- and third-party HTTP cookies present on visited sites.
+While a more academic tool, FourthParty can help researchers understand web tracking practices, and ultimately seek new ways to bringing attention to these practices to the general public. 
