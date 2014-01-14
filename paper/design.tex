@@ -13,7 +13,15 @@ Appropriate packets are then sent to the CookieBowl; for each captured packet, t
 Next, the CookieBowl searches for a pre-defined set of advertising and analytics cookies, the \emph{profiling cookies}, among all collected cookies, and separates out these relevant cookies.
 
 The Profiler, takes the map of found profiling cookies and parses the data found in each cookie's value. 
-As discussed in Section \ref{sec:background}, BiscuitSpy uses two types of advertising/analytics cookies to build a user profile: (1) \emph{global cookies}, and (2) \emph{local cookies}.
+BiscuitSpy uses two types of advertising/analytics cookies to build a user profile: (1) \emph{global cookies}, and (2) \emph{local cookies}.
+% I think this section should include an explanation of the types of cookies we looked for when searching for profiling cookies
+Global cookies, such as DoubleClick's 'id' cookie, have a globally unique value, \emph{i.e.,} its value remains the same across different visited websites in each \emph{session}. 
+Ad companies use these cookies to track user through their web and collect information about their browsing habits and personal preferences.
+
+Local cookies, on the other hand, such as the Google Analytics '\_\_utma' cookie, have locally unique values.
+This means that each unique domain that utilizes such a cookie to track an individual user will have a unique user identifier for the entire \emph{lifetime} of the cookie.
+These kinds of cookies are used by domains to keep track of their own users and their browsing habits pertaining to their website.
+
 Since the value of global cookies does not change across different visited websites, BiscuitSpy can cross-reference each appearance of such cookies allowing it to link two independent HTTP requests captured by the packet sniffer during a single BiscuitSpy session. 
 At the same time, local cookies, which contain a per-domain unique user identifier for the entire \emph{lifetime} of the cookie allow BiscuitSpy to infer crucial user browsing behavior.
 By combining common global and local ad and analytics cookies, we are able to track individual users throughout a single browsing session using global cookies while gathering browsing behavior information via the associated local cookies.

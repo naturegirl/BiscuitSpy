@@ -1,13 +1,5 @@
 \section{Background}
-\label{sec:background}
-
-% I think this section should include an explanation of the types of cookies we looked for when searching for profiling cookies
-Global cookies, such as DoubleClick's \texttt{id} cookie, have a globally unique value, \emph{i.e.,} its value remains the same across different visited websites in each \emph{session} (\textbf{NEEDS VERIFICATION: per session, or per lifetime}. 
-Ad companies use these cookies to track user through their web and collect information about their browsing habits and personal preferences.
-
-Local cookies, on the other hand, such as the Google Analytics \texttt{\_\_utma} cookie, have locally unique values.
-This means that each unique domain that utilizes such a cookie to track an individual user will have a unique user identifier for the entire \emph{lifetime} of the cookie (\textbf{NEEDS VERIFICATION: per session, or per lifetime}.
-These kinds of cookies are used by domains to keep track of their own users and their browsing habits pertaining to their website. 
+\label{sec:background} 
 
 \subsection{Cookies used by Google}
 As Google cookies are one of the most pervasive cookies on the Internet we start by giving an overview of the different types of cookies that Google uses. They can be divided into the following categories:
@@ -28,7 +20,7 @@ Advertising cookies are used to determine which ads to display to the user and f
 Session state cookies collect information about how users interact with a website and keep information of the previous sessions of a website. Youtube session cookies for example store a list of most recent videos watched in that browser. Session state cookies are also used to measure the effectiveness of affiliate advertising. It is difficult to determine the exact names of session cookies and the meaning of their values, therefore BiscuitSpy currently does not leverage session cookies for user profiling.
 
 \subsubsection{Analytics}
-Analytics cookies represent the largest group of Google cookies and are mainly used by BiscuitSpy to gather user profile information. While the previous cookies all belong to a Google domain, analytics cookies do not have that restriction and can be found on all websites that use Google Analytics (GA) and are stored under the current website's domain. The five main cookies set by GA are  \_utma,  \_utmb, \_utmc, \_utmv and \_utmz. 
+Analytics cookies represent the largest group of Google cookies and are mainly used by BiscuitSpy to gather user profile information. While the previous cookies all belong to a Google domain, analytics cookies do not have that restriction and can be found on all websites that use Google Analytics (GA) and are stored under the current website's domain. The five main cookies set by GA are  '\_utma',  '\_utmb', '\_utmc', '\_utmv' and '\_utmz'. 
 
 \begin{figure}[h]
 \centering
@@ -50,7 +42,7 @@ Session number & Contains the number of visits to this website since cookie crea
 
 \end{figure}
 
-As an example, Figure \ref{fig:utma} shows the individual components of the \_utma cookie. The timestamp information of the initial, most recent and current visit in combination with the number of visits to the website allow for an accurate reconstruction of user's browsing behavior. 
+As an example, Figure \ref{fig:utma} shows the individual components of the '\_utma' cookie. The timestamp information of the initial, most recent and current visit in combination with the number of visits to the website allow for an accurate reconstruction of user's browsing behavior. 
 \\
 \\
 For the BiscuitSpy implementation we leveraged preference cookies, advertising cookies and analytics cookies. We did not filter out process cookies and session state cookies, since we were unable to identify the specific cookie names and individual cookie field meanings.
@@ -59,7 +51,7 @@ For the BiscuitSpy implementation we leveraged preference cookies, advertising c
 \subsection{Common third-party cookies}
 While Google cookies are the most common cookies found on websites, we also identified several other common third-party cookies from amazon, facebook and twitter.
 
-A common Amazon third party cookie is the \texttt{apn-user-id} cookie. This cookie contains the user-id as shared by the amazon partner's network. The most common Facebook third party cookie is the \texttt{datr} cookie. This cookie encodes a user id and remains the same across websites and browsing sessions. Twitter's third party cookie is the \texttt{guest\_id} cookie which contains a version number and an encoded user id. It is interesting to see how these other non-google cookies become more and more prevalent on the web and challenge Google's position as the dominent user and ad tracking cookie provider.
+A common Amazon third party cookie is the 'apn-user-id' cookie. This cookie contains the user-id as shared by the amazon partner's network. The most common Facebook third party cookie is the 'datr' cookie. This cookie encodes a user id and remains the same across websites and browsing sessions. Twitter's third party cookie is the 'guest\_id' cookie which contains a version number and an encoded user id. It is interesting to see how these other non-google cookies become more and more prevalent on the web and challenge Google's position as the dominent user and ad tracking cookie provider.
 
 
 
